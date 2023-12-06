@@ -11,7 +11,6 @@ function MyVerticallyCenteredDeleteModalCleinte(props) {
         console.log(response.data);
         alert('Cliente excluído com sucesso!');
         props.onHide();
-        window.location.reload();
       })
       .catch(error => {
         console.log(error);

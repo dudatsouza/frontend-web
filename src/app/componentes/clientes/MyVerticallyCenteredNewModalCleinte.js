@@ -61,7 +61,6 @@ function MyVerticallyCenteredNewModalCleinte(props) {
       setTimeout(() => {
         alert('Cliente criado com sucesso!');
         props.onHide();
-        window.location.reload();
       }, 2000);
     }).catch(err => {
       // Handle error

@@ -44,7 +44,6 @@ logradouro
             setTimeout(() => {
                 alert('Fornecedor atualizado com sucesso!');
                 props.onHide();
-                window.location.reload();
 
             }, 2000);
         }).catch(err => {

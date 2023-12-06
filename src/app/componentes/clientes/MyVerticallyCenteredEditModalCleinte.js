@@ -13,6 +13,8 @@ function MyVerticallyCenteredEditModalCleinte(props) {
 
     const handleSubmit = (event) => {
         event.preventDefault();
+        event.stopPropagation();
+        event.nativeEvent.stopImmediatePropagation();
 
         // Validate form fields
         if (!nome || !sobrenome || !email || !salario) {
@@ -41,8 +43,6 @@ function MyVerticallyCenteredEditModalCleinte(props) {
             setTimeout(() => {
                 alert('Cliente atualizado com sucesso!');
                 props.onHide();
-                window.location.reload();
-
             }, 2000);
         }).catch(err => {
             // Handle error

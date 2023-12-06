@@ -4,14 +4,12 @@ import axios from 'axios';
 import MyVerticallyCenteredViewModalFornecedor from './MyVerticallyCenteredViewModalFornecedor';
 import MyVerticallyCenteredEditModalFornecedor from './MyVerticallyCenteredEditModalFornecedor';
 import MyVerticallyCenteredDeleteModalFornecedor from './MyVerticallyCenteredDeleteModalFornecedor';
-import MyVerticallyCenteredNewModalFornecedor from './MyVerticallyCenteredNewModalFornecedor';
 
 export default function ListaFornecedores() {
   const [fornecedores, setFornecedores] = useState([]);
   const [viewModalShow, setViewModalShow] = useState(false);
   const [editModalShow, setEditModalShow] = useState(false);
   const [deleteModalShow, setDeleteModalShow] = useState(false);
-  const [newModalShow, setNewModalShow] = useState(false);
   const [selectedFornecedor, setSelectedFornecedor] = useState({});
 
   const handleViewFornecedor = (fornecedor) => {
@@ -27,10 +25,6 @@ export default function ListaFornecedores() {
   const handleDeleteFornecedor = (fornecedor) => {
     setSelectedFornecedor(fornecedor);
     setDeleteModalShow(true);
-  };
-
-  const handleNewFornecedor = () => {
-    setNewModalShow(true);
   };
 
   useEffect(() => {
@@ -61,7 +55,7 @@ export default function ListaFornecedores() {
     <div>
       <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
         <h1>Lista de Fornecedores</h1>
-        <Button variant="outline-dark" onClick={handleNewFornecedor}>Novo Fornecedor</Button>
+
       </div>
 
       <Table striped bordered hover>
@@ -89,10 +83,6 @@ export default function ListaFornecedores() {
         show={deleteModalShow}
         onHide={() => setDeleteModalShow(false)}
         fornecedor={selectedFornecedor}
-      />
-      <MyVerticallyCenteredNewModalFornecedor
-        show={newModalShow}
-        onHide={() => setNewModalShow(false)}
       />
     </div>
   );
